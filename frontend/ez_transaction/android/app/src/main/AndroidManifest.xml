@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ez_transaction">
+   <uses-permission android:name="android.permission.CAMERA" />
    <application
         android:label="ez_transaction"
         android:name="${applicationName}"
