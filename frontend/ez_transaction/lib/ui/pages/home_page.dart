@@ -8,28 +8,22 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              Consumer(
-                builder: (_, ref, __) => TextButton(
-                  onPressed: () async {
-                    var result = await BarcodeScanner.scan();
-                    ref.read(qrProvider.notifier).setState(result.rawContent);
-                  },
-                  child: const Text('Scan'),
-                ),
-              ),
-              Consumer(builder: (_, ref, __) {
-                final qrState = ref.watch(qrProvider);
-                return Text(qrState);
-              }),
-            ],
+    return Column(
+      children: [
+        Consumer(
+          builder: (_, ref, __) => TextButton(
+            onPressed: () async {
+              var result = await BarcodeScanner.scan();
+              ref.read(qrProvider.notifier).setState(result.rawContent);
+            },
+            child: const Text('Scan'),
           ),
         ),
-      ),
+        Consumer(builder: (_, ref, __) {
+          final qrState = ref.watch(qrProvider);
+          return Text(qrState);
+        }),
+      ],
     );
   }
 }
