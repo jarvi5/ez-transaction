@@ -1,4 +1,4 @@
-import 'package:ez_transaction/ui/pages/home_page.dart';
+import 'package:ez_transaction/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -15,12 +15,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'EZ Transaction',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const HomePage(),
+    return MaterialApp.router(
+      title: 'EZTransaction',
+      theme: ThemeData.dark(),
+      routerConfig: router,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
